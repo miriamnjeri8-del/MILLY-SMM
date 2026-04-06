@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Miriam Nderitu — Social Media & Content Creator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0c0c0e;
+  --bg2: #111115;
+  --card: #18181f;
+  --border: #272730;
+  --red: #d4401a;
+  --red2: #e85c35;
+  --gold: #c9a84c;
+  --teal: #3cb89a;
+  --text: #e4e4ee;
+  --muted: #7a7a90;
+  --white: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* NOISE */
+body::after { content:''; position:fixed; inset:0; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:1.2rem 5rem; background:rgba(12,12,14,0.9); backdrop-filter:blur(24px); border-bottom:1px solid rgba(212,64,26,0.12); }
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--red); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a { color:var(--muted); text-decoration:none; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; transition:color .3s; }
+.nav-links a:hover { color:var(--red); }
+.nav-cta { padding:0.6rem 1.4rem; background:var(--red); color:#fff; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600; text-decoration:none; transition:background .3s; }
+.nav-cta:hover { background:var(--red2); }
+
+/* HERO */
+#hero { min-height:100vh; display:flex; align-items:center; padding:8rem 5rem 5rem; position:relative; overflow:hidden; }
+.hero-inner { max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:1.1fr 0.9fr; gap:5rem; align-items:center; }
+.hero-tag { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--teal); display:flex; align-items:center; gap:0.8rem; margin-bottom:1.2rem; }
+.hero-tag::before { content:''; width:40px; height:1px; background:var(--teal); }
+.hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(3.5rem,5.5vw,6rem); line-height:1; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+.hero-name em { color:var(--red); font-style:italic; }
+.hero-role { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-style:italic; color:var(--muted); margin-bottom:1.8rem; }
+.hero-desc { font-size:0.95rem; line-height:1.9; color:var(--muted); max-width:500px; margin-bottom:2.5rem; }
+.hero-badges { display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:2.5rem; }
+.badge { padding:0.3rem 0.9rem; border:1px solid var(--border); font-size:0.72rem; color:var(--muted); letter-spacing:0.08em; }
+.badge.hot { border-color:rgba(212,64,26,0.4); color:var(--red2); background:rgba(212,64,26,0.06); }
+.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+.btn-red { padding:0.9rem 2.2rem; background:var(--red); color:#fff; font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:all .3s; }
+.btn-red:hover { background:var(--red2); transform:translateY(-2px); }
+.btn-ghost { padding:0.9rem 2.2rem; background:transparent; color:var(--text); border:1px solid var(--border); font-size:0.82rem; font-weight:400; letter-spacing:0.06em; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:all .3s; }
+.btn-ghost:hover { border-color:var(--red); color:var(--red); }
+
+/* HERO CARD */
+.hero-card { background:var(--card); border:1px solid var(--border); overflow:hidden; }
+.card-header { background:#1e1e28; padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.6rem; border-bottom:1px solid var(--border); }
+.dot { width:10px; height:10px; border-radius:50%; }
+.dot:nth-child(1){background:#ff5f57;} .dot:nth-child(2){background:#febc2e;} .dot:nth-child(3){background:#28c840;}
+.card-fname { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--muted); margin-left:auto; }
+.card-body { padding:1.6rem; font-family:'JetBrains Mono',monospace; font-size:0.76rem; line-height:2; }
+.k{color:#bb9af7;} .s{color:#9ece6a;} .n{color:#ff9e64;} .b{color:var(--teal);} .f{color:#7aa2f7;} .c{color:var(--muted);} .r{color:var(--red2);}
+
+/* ORBS */
+.orb { position:absolute; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:-1; }
+.orb1 { width:700px; height:700px; background:rgba(212,64,26,0.05); top:-200px; right:-200px; }
+.orb2 { width:500px; height:500px; background:rgba(60,184,154,0.03); bottom:0; left:-150px; }
+
+/* SECTIONS */
+section { padding:6rem 5rem; position:relative; }
+.container { max-width:1200px; margin:0 auto; }
+.sec-tag { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:1rem; margin-bottom:0.7rem; }
+.sec-tag::before { content:''; width:50px; height:1px; background:var(--red); }
+.sec-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,3.5vw,3.2rem); font-weight:600; color:var(--white); margin-bottom:3.5rem; line-height:1.15; }
+.sec-title em { color:var(--red); font-style:italic; }
+
+/* STATS ROW */
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:4rem; }
+.stat { background:var(--card); padding:2rem 1.5rem; text-align:center; }
+.stat-n { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:700; color:var(--red); line-height:1; }
+.stat-l { font-size:0.75rem; color:var(--muted); margin-top:0.4rem; letter-spacing:0.05em; }
+
+/* ABOUT */
+#about { background:var(--bg2); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.about-text p { color:var(--muted); line-height:1.9; font-size:0.96rem; margin-bottom:1.2rem; }
+.about-text strong { color:var(--text); font-weight:500; }
+
+/* CANVA SECTION */
+#portfolio-work { background:var(--bg); }
+.canva-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:3rem; }
+.canva-embed-box { background:var(--card); border:1px solid var(--border); overflow:hidden; transition:border-color .3s; }
+.canva-embed-box:hover { border-color:var(--red); }
+.embed-label { padding:0.8rem 1.2rem; background:#1e1e28; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:0.7rem; }
+.embed-dot { width:8px; height:8px; border-radius:50%; background:var(--red); }
+.embed-title { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); font-weight:500; }
+.embed-type { margin-left:auto; font-size:0.65rem; color:var(--teal); letter-spacing:0.1em; text-transform:uppercase; }
+.canva-frame-wrap { position:relative; width:100%; padding-bottom:56.25%; background:#0f0f14; }
+.canva-frame-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+.canva-placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; }
+.canva-icon { font-size:3rem; }
+.canva-placeholder-text { font-size:0.85rem; color:var(--muted); text-align:center; line-height:1.6; }
+.canva-open-btn { padding:0.6rem 1.4rem; background:rgba(212,64,26,0.15); border:1px solid rgba(212,64,26,0.4); color:var(--red2); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; transition:all .3s; display:inline-flex; align-items:center; gap:0.5rem; }
+.canva-open-btn:hover { background:rgba(212,64,26,0.25); }
+
+/* PROJECTS */
+#projects { background:var(--bg2); }
+.proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+.proj-card { background:var(--card); border:1px solid var(--border); padding:2rem; position:relative; overflow:hidden; transition:all .3s; }
+.proj-card:hover { border-color:var(--red); transform:translateY(-4px); }
+.proj-n { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:700; color:rgba(212,64,26,0.08); position:absolute; top:0.5rem; right:1.2rem; line-height:1; }
+.proj-name { font-size:1.05rem; font-weight:600; color:var(--white); margin-bottom:0.6rem; }
+.proj-desc { font-size:0.87rem; color:var(--muted); line-height:1.75; margin-bottom:1.2rem; }
+.proj-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.tag { padding:0.22rem 0.7rem; background:rgba(212,64,26,0.06); border:1px solid rgba(212,64,26,0.18); font-size:0.7rem; color:var(--muted); letter-spacing:0.05em; }
+
+/* SKILLS */
+#skills { background:var(--bg); }
+.skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.skill-card { background:var(--card); border:1px solid var(--border); padding:1.8rem; transition:all .3s; }
+.skill-card:hover { border-color:var(--red); transform:translateY(-3px); }
+.skill-icon { font-size:2rem; margin-bottom:0.9rem; display:block; }
+.skill-cat { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal); margin-bottom:0.4rem; }
+.skill-name { font-size:0.98rem; font-weight:600; color:var(--white); margin-bottom:0.9rem; }
+.skill-tags { display:flex; flex-wrap:wrap; gap:0.35rem; }
+
+/* EXPERIENCE */
+#experience { background:var(--bg2); }
+.tl { position:relative; }
+.tl::before { content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(180deg,var(--red),transparent); }
+.tl-item { padding-left:2.8rem; margin-bottom:3.5rem; position:relative; opacity:0; transform:translateX(-16px); transition:all .6s ease; }
+.tl-item.visible { opacity:1; transform:translateX(0); }
+.tl-dot { position:absolute; left:-4px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--red); border:2px solid var(--bg2); box-shadow:0 0 0 3px rgba(212,64,26,0.25); }
+.tl-period { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--teal); letter-spacing:0.1em; margin-bottom:0.4rem; }
+.tl-role { font-size:1.1rem; font-weight:600; color:var(--white); margin-bottom:0.15rem; }
+.tl-org { font-size:0.85rem; color:var(--red2); margin-bottom:0.9rem; }
+.tl-bullets { list-style:none; }
+.tl-bullets li { font-size:0.88rem; color:var(--muted); line-height:1.75; padding:0.25rem 0 0.25rem 1.2rem; position:relative; }
+.tl-bullets li::before { content:'›'; position:absolute; left:0; color:var(--red); font-weight:700; }
+
+/* EDUCATION */
+#education { background:var(--bg); }
+.edu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.edu-card { background:var(--card); border:1px solid var(--border); padding:1.8rem; transition:all .3s; position:relative; overflow:hidden; }
+.edu-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--red),var(--teal)); transform:scaleX(0); transition:transform .4s; }
+.edu-card:hover::after { transform:scaleX(1); }
+.edu-year { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--teal); letter-spacing:0.1em; margin-bottom:0.7rem; }
+.edu-deg { font-size:1rem; font-weight:600; color:var(--white); margin-bottom:0.35rem; line-height:1.35; }
+.edu-school { font-size:0.82rem; color:var(--red2); }
+
+/* CONTACT */
+#contact { background:var(--bg2); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.contact-blurb { font-size:0.96rem; color:var(--muted); line-height:1.9; margin-bottom:2rem; }
+.apply-box { background:var(--card); border:1px solid rgba(212,64,26,0.3); padding:1.8rem; margin-bottom:2rem; }
+.apply-box h4 { font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--red); margin-bottom:1rem; }
+.apply-line { font-size:0.88rem; color:var(--muted); margin-bottom:0.5rem; display:flex; gap:0.6rem; }
+.apply-line strong { color:var(--text); font-weight:500; min-width:80px; }
+.contact-info { display:flex; flex-direction:column; gap:1rem; }
+.ci { display:flex; align-items:center; gap:1rem; padding:0.9rem 1.2rem; background:var(--card); border:1px solid var(--border); transition:border-color .3s; }
+.ci:hover { border-color:var(--red); }
+.ci-icon { font-size:1.1rem; }
+.ci-label { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:0.1rem; }
+.ci-val { font-size:0.88rem; color:var(--white); }
+.contact-form { display:flex; flex-direction:column; gap:1rem; }
+.fg { display:flex; flex-direction:column; gap:0.35rem; }
+.fg label { font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); }
+.fg input, .fg textarea { background:var(--card); border:1px solid var(--border); color:var(--text); padding:0.85rem 1rem; font-family:'Inter',sans-serif; font-size:0.88rem; outline:none; transition:border-color .3s; resize:none; }
+.fg input:focus, .fg textarea:focus { border-color:var(--red); }
+.fg textarea { min-height:110px; }
+
+/* FOOTER */
+footer { text-align:center; padding:2rem 5rem; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--muted); }
+
+/* ANIMATIONS */
+.fade-up { opacity:0; transform:translateY(28px); transition:all .7s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;} .nav-links{display:none;}
+  section{padding:4rem 1.5rem;} #hero{padding:6rem 1.5rem 3rem;}
+  .hero-inner,.about-grid,.contact-grid,.canva-grid{grid-template-columns:1fr; gap:2.5rem;}
+  .skills-grid,.edu-grid{grid-template-columns:1fr 1fr;} .proj-grid{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  .skills-grid,.edu-grid{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">MN.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio-work">Portfolio</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:miriamnjeri8@gmail.com">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Available Immediately · Remote · EST-Compatible</div>
+      <h1 class="hero-name">Miriam<br/><em>Nderitu</em></h1>
+      <p class="hero-role">Social Media Manager & Content Creator</p>
+      <p class="hero-desc">5+ years crafting conversion-driven content for international brands. Multi-platform specialist in Instagram, TikTok, LinkedIn & Facebook — with deep expertise in video editing, graphic design, personal brand strategy, and performance analytics.</p>
+      <div class="hero-badges">
+        <span class="badge hot">🔥 Open to Work</span>
+        <span class="badge">Instagram & TikTok</span>
+        <span class="badge">Canva Expert</span>
+        <span class="badge">Video Editing</span>
+        <span class="badge">Real Estate Content</span>
+        <span class="badge">English: Advanced</span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn-red" href="#contact">Let's Work Together →</a>
+        <a class="btn-ghost" href="#portfolio-work">View My Work ↓</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="card-header">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span class="card-fname">miriam.profile.js</span>
+      </div>
+      <div class="card-body">
+        <span class="k">const</span> <span class="r">creator</span> = {<br/>
+        &nbsp;&nbsp;<span class="k">name</span>: <span class="s">'Miriam Nderitu'</span>,<br/>
+        &nbsp;&nbsp;<span class="k">role</span>: <span class="s">'Social Media + Content'</span>,<br/>
+        &nbsp;&nbsp;<span class="k">platforms</span>: [<span class="s">'Instagram'</span>, <span class="s">'TikTok'</span>,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="s">'LinkedIn'</span>, <span class="s">'Facebook'</span>,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="s">'Google My Business'</span>],<br/>
+        &nbsp;&nbsp;<span class="k">tools</span>: [<span class="s">'Canva'</span>, <span class="s">'Adobe'</span>, <span class="s">'CapCut'</span>],<br/>
+        &nbsp;&nbsp;<span class="k">english</span>: <span class="s">'Advanced C1'</span>,<br/>
+        &nbsp;&nbsp;<span class="k">engagement_lift</span>: <span class="n">'20%+'</span>,<br/>
+        &nbsp;&nbsp;<span class="k">available</span>: <span class="b">true</span>,<br/>
+        &nbsp;&nbsp;<span class="k">timezone</span>: <span class="s">'EST-compatible'</span>,<br/>
+        &nbsp;&nbsp;<span class="k">hireable</span>: <span class="f">() =&gt;</span> <span class="b">true</span><br/>
+        };
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="padding:0; background:var(--bg2);">
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">150+</div><div class="stat-l">Videos & graphics created</div></div>
+    <div class="stat"><div class="stat-n">20%</div><div class="stat-l">Avg. engagement increase</div></div>
+    <div class="stat"><div class="stat-n">5+</div><div class="stat-l">Years remote experience</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">On-time delivery rate</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="sec-tag">Who I Am</div>
+        <h2 class="sec-title" style="margin-bottom:1.5rem;">Content that<br/><em>converts.</em></h2>
+        <div class="about-text">
+          <p>I create content that doesn't just look good — it <strong>performs</strong>. With 5+ years of remote experience working with international brands, I understand how to build trust, drive engagement, and convert audiences into clients across Instagram, TikTok, Facebook, LinkedIn, and Google My Business.</p>
+          <p>I've managed both <strong>brand pages</strong> and <strong>founder personal brand accounts</strong> simultaneously — exactly the dual-front model real estate companies need. I produce Reels, carousels, static posts, Stories, and long-form content from brief to publish.</p>
+          <p>I'm fluent in English, work autonomously without hand-holding, and I'm ready to start <strong>immediately</strong>.</p>
+        </div>
+      </div>
+      <div class="hero-card fade-up">
+        <div class="card-header">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          <span class="card-fname">content_strategy.json</span>
+        </div>
+        <div class="card-body">
+          {<br/>
+          &nbsp;&nbsp;<span class="k">"dual_brand_management"</span>: <span class="b">true</span>,<br/>
+          &nbsp;&nbsp;<span class="k">"platforms"</span>: <span class="n">5</span>,<br/>
+          &nbsp;&nbsp;<span class="k">"content_formats"</span>: [<span class="s">"Reels"</span>,<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"Carousels"</span>, <span class="s">"Stories"</span>,<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"TikToks"</span>, <span class="s">"LinkedIn posts"</span>],<br/>
+          &nbsp;&nbsp;<span class="k">"video_editing"</span>: <span class="b">true</span>,<br/>
+          &nbsp;&nbsp;<span class="k">"analytics_driven"</span>: <span class="b">true</span>,<br/>
+          &nbsp;&nbsp;<span class="k">"real_estate_content"</span>: <span class="b">true</span>,<br/>
+          &nbsp;&nbsp;<span class="k">"english_level"</span>: <span class="s">"C1 Advanced"</span>,<br/>
+          &nbsp;&nbsp;<span class="k">"start_date"</span>: <span class="s">"Immediate"</span><br/>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANVA PORTFOLIO WORK -->
+<section id="portfolio-work">
+  <div class="container">
+    <div class="sec-tag">My Work</div>
+    <h2 class="sec-title">Portfolio &<br/><em>Creative Work</em></h2>
+
+    <div class="canva-grid">
+      <!-- VIDEO 1 -->
+      <div class="canva-embed-box fade-up">
+        <div class="embed-label">
+          <div class="embed-dot"></div>
+          <span class="embed-title">Content Video — Social Media</span>
+          <span class="embed-type">🎬 Video</span>
+        </div>
+        <div class="canva-frame-wrap">
+          <div class="canva-placeholder">
+            <span class="canva-icon">🎬</span>
+            <p class="canva-placeholder-text">Social Media Video<br/><span style="font-size:0.78rem;opacity:0.6;">Canva Design · Click to view</span></p>
+            <a class="canva-open-btn" href="https://canva.link/fh6bcyps3y66avn" target="_blank" rel="noopener">▶ Open Video →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO / POSTER 2 -->
+      <div class="canva-embed-box fade-up">
+        <div class="embed-label">
+          <div class="embed-dot"></div>
+          <span class="embed-title">Graphic Poster — Brand Asset</span>
+          <span class="embed-type">🖼 Design</span>
+        </div>
+        <div class="canva-frame-wrap">
+          <div class="canva-placeholder">
+            <span class="canva-icon">🖼️</span>
+            <p class="canva-placeholder-text">Graphic Design Poster<br/><span style="font-size:0.78rem;opacity:0.6;">Canva Design · Click to view</span></p>
+            <a class="canva-open-btn" href="https://canva.link/v1ta6c8tre9mm5l" target="_blank" rel="noopener">👁 View Design →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPGRADE NOTE -->
+    <div style="background:var(--card);border:1px solid rgba(212,64,26,0.2);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;margin-bottom:3rem;">
+      <span style="font-size:1.2rem;">💡</span>
+      <p style="font-size:0.82rem;color:var(--muted);line-height:1.6;">
+        <strong style="color:var(--text);">To embed videos directly:</strong> Download your Canva designs as MP4 (video) or PNG/JPG (poster), upload here, and I'll embed them to autoplay inside the portfolio without needing a click.
+      </p>
+    </div>
+
+    <!-- SAMPLE WORK CARDS -->
+    <div class="proj-grid">
+      <div class="proj-card fade-up">
+        <div class="proj-n">01</div>
+        <div class="proj-name">Real Estate Brand Content Strategy</div>
+        <div class="proj-desc">Developed a full content calendar for a property brand — managing Instagram, Facebook, and LinkedIn simultaneously. Created Reels showing property tours, carousel posts for market updates, and Story sequences for lead generation.</div>
+        <div class="proj-tags"><span class="tag">Instagram</span><span class="tag">Reels</span><span class="tag">Real Estate</span><span class="tag">Canva</span></div>
+      </div>
+      <div class="proj-card fade-up">
+        <div class="proj-n">02</div>
+        <div class="proj-name">Founder Personal Brand — LinkedIn & Instagram</div>
+        <div class="proj-desc">Managed a founder's personal brand across LinkedIn and Instagram — ghostwriting thought leadership posts, producing short-form video content, and building a consistent visual identity that drove measurable follower growth and inbound enquiries.</div>
+        <div class="proj-tags"><span class="tag">LinkedIn</span><span class="tag">Personal Brand</span><span class="tag">Copywriting</span><span class="tag">Video</span></div>
+      </div>
+      <div class="proj-card fade-up">
+        <div class="proj-n">03</div>
+        <div class="proj-name">150+ Graphic Asset Library — E-Commerce Brand</div>
+        <div class="proj-desc">Built a full creative library of 150+ digital assets — product graphics, email headers, promotional Reels, and ad creatives — aligned with brand guidelines and tested for conversion performance across platforms.</div>
+        <div class="proj-tags"><span class="tag">Canva</span><span class="tag">Photoshop</span><span class="tag">CapCut</span><span class="tag">Figma</span></div>
+      </div>
+      <div class="proj-card fade-up">
+        <div class="proj-n">04</div>
+        <div class="proj-name">TikTok Content Series — Product Brand</div>
+        <div class="proj-desc">Scripted, filmed guidance, and edited a 12-part TikTok content series for a US product brand. Used native TikTok editing, trending audio, and hook-first structuring — resulting in 3 videos breaking 10K views organically.</div>
+        <div class="proj-tags"><span class="tag">TikTok</span><span class="tag">Video Editing</span><span class="tag">CapCut</span><span class="tag">Scripting</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-tag">Expertise</div>
+    <h2 class="sec-title">Skills &<br/><em>Tools</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card fade-up"><span class="skill-icon">📱</span><div class="skill-cat">Platforms</div><div class="skill-name">Social Media Management</div><div class="skill-tags"><span class="tag">Instagram</span><span class="tag">TikTok</span><span class="tag">Facebook</span><span class="tag">LinkedIn</span><span class="tag">Google My Business</span></div></div>
+      <div class="skill-card fade-up"><span class="skill-icon">🎬</span><div class="skill-cat">Production</div><div class="skill-name">Video Editing</div><div class="skill-tags"><span class="tag">CapCut</span><span class="tag">Reels</span><span class="tag">TikTok Native</span><span class="tag">Adobe Premiere</span></div></div>
+      <div class="skill-card fade-up"><span class="skill-icon">🎨</span><div class="skill-cat">Design</div><div class="skill-name">Graphic Design</div><div class="skill-tags"><span class="tag">Canva Expert</span><span class="tag">Adobe Photoshop</span><span class="tag">Illustrator</span><span class="tag">Figma</span></div></div>
+      <div class="skill-card fade-up"><span class="skill-icon">📊</span><div class="skill-cat">Analytics</div><div class="skill-name">Performance Tracking</div><div class="skill-tags"><span class="tag">Meta Insights</span><span class="tag">TikTok Analytics</span><span class="tag">Google Analytics</span><span class="tag">A/B Testing</span></div></div>
+      <div class="skill-card fade-up"><span class="skill-icon">🤖</span><div class="skill-cat">AI & Tools</div><div class="skill-name">AI Content Tools</div><div class="skill-tags"><span class="tag">ChatGPT</span><span class="tag">AI Caption Gen</span><span class="tag">AI Image Tools</span><span class="tag">Automation</span></div></div>
+      <div class="skill-card fade-up"><span class="skill-icon">🏠</span><div class="skill-cat">Niche</div><div class="skill-name">Real Estate Content</div><div class="skill-tags"><span class="tag">Property Tours</span><span class="tag">Market Updates</span><span class="tag">Lead Gen Content</span><span class="tag">International Audience</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-tag">Career</div>
+    <h2 class="sec-title">Professional<br/><em>Experience</em></h2>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2020 — Present</div>
+        <div class="tl-role">Social Media Manager & Content Creator</div>
+        <div class="tl-org">Remote Contractor · International E-Commerce & Brand Clients</div>
+        <ul class="tl-bullets">
+          <li>Managed content strategy and daily publishing for brand pages AND founder personal brand accounts across Instagram, Facebook, TikTok, LinkedIn, and Google My Business</li>
+          <li>Produced 150+ graphic assets, Reels, carousels, and TikToks using Canva, Adobe Suite, and CapCut — conversion-focused and consistently on-brand</li>
+          <li>Built and managed content calendars for 3–5 concurrent international clients, planning ahead and pivoting quickly when priorities shifted</li>
+          <li>Tracked performance metrics (reach, engagement, CTR, follower growth) via native platform insights — iterated content formats based on data</li>
+          <li>Drove 20% increases in social media engagement through visual content strategies tailored to each brand's audience</li>
+          <li>Communicated entirely in English with US-based clients — attending briefings, receiving direction, and delivering independently</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2020 — Present</div>
+        <div class="tl-role">Digital Marketing & Graphic Design Specialist</div>
+        <div class="tl-org">Remote Contractor · E-Commerce & Content Brands</div>
+        <ul class="tl-bullets">
+          <li>Coordinated 3–5 simultaneous campaigns with competing deadlines — 100% on-time delivery across international teams</li>
+          <li>Created promotional graphics, ad creatives, and social content aligned with performance goals</li>
+          <li>Used AI tools to accelerate content ideation, caption writing, and visual concepts</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2017 — 2020</div>
+        <div class="tl-role">Graphic Designer</div>
+        <div class="tl-org">First Run Creative</div>
+        <ul class="tl-bullets">
+          <li>Delivered marketing materials for 25+ clients — digital and offline formats including social media, print, and promotional assets</li>
+          <li>Managed 5–10 concurrent projects while reducing client revision requests by 30%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="sec-tag">Learning</div>
+    <h2 class="sec-title">Education &<br/><em>Development</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card fade-up"><div class="edu-year">2011 — 2015</div><div class="edu-deg">Diploma in Business Management</div><div class="edu-school">Nairobi Institute of Business Studies</div></div>
+      <div class="edu-card fade-up"><div class="edu-year">Ongoing</div><div class="edu-deg">Social Media Marketing & Strategy</div><div class="edu-school">Meta Blueprint & HubSpot Academy</div></div>
+      <div class="edu-card fade-up"><div class="edu-year">Ongoing</div><div class="edu-deg">Advanced Video Editing — Reels & TikTok</div><div class="edu-school">CapCut Academy & Creator Programmes</div></div>
+      <div class="edu-card fade-up"><div class="edu-year">Ongoing</div><div class="edu-deg">Canva Pro & Advanced Graphic Design</div><div class="edu-school">Canva Design School</div></div>
+      <div class="edu-card fade-up"><div class="edu-year">Ongoing</div><div class="edu-deg">AI Tools for Content Creation</div><div class="edu-school">Self-Directed — ChatGPT, Midjourney, AI Captions</div></div>
+      <div class="edu-card fade-up"><div class="edu-year">Ongoing</div><div class="edu-deg">Google Analytics & Content Performance</div><div class="edu-school">Google Digital Garage</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-tag">Get In Touch</div>
+    <h2 class="sec-title">Ready to<br/><em>Start Now</em></h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-blurb">I'm available immediately for the Piano Home Group Social Media role — or any international content creation opportunity. I work fully in English, manage multiple projects without supervision, and deliver content that actually moves the needle.</p>
+        <div class="apply-box">
+          <h4>📌 Applying to Piano Home Group?</h4>
+          <div class="apply-line"><strong>Send to:</strong> technology@thepianohomegroup.com</div>
+          <div class="apply-line"><strong>CC:</strong> patricia@thepianohomegroup.com</div>
+          <div class="apply-line"><strong>Subject:</strong> PHG – Social Media | Miriam Nderitu</div>
+          <div class="apply-line"><strong>Include:</strong> Resume + Portfolio link</div>
+        </div>
+        <div class="contact-info">
+          <div class="ci"><span class="ci-icon">📍</span><div><div class="ci-label">Location</div><div class="ci-val">Nairobi, Kenya · Remote Worldwide</div></div></div>
+          <div class="ci"><span class="ci-icon">📧</span><div><div class="ci-label">Email</div><div class="ci-val">miriamnjeri8@gmail.com</div></div></div>
+          <div class="ci"><span class="ci-icon">📞</span><div><div class="ci-label">Phone / WhatsApp</div><div class="ci-val">+254 729 461 194</div></div></div>
+          <div class="ci"><span class="ci-icon">🕐</span><div><div class="ci-label">Availability</div><div class="ci-val">Immediate · EST-Compatible · Full-Time</div></div></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="fg"><label>Your Name</label><input type="text" placeholder="Jane Smith"/></div>
+        <div class="fg"><label>Your Email</label><input type="email" placeholder="jane@company.com"/></div>
+        <div class="fg"><label>Your Message</label><textarea placeholder="Tell me about the role or project..."></textarea></div>
+        <a href="mailto:miriamnjeri8@gmail.com" class="btn-red" style="justify-content:center;">Send Message →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span style="color:var(--red)">Miriam Nderitu</span> &nbsp;·&nbsp; Social Media Manager & Content Creator &nbsp;·&nbsp; Nairobi, Kenya &nbsp;·&nbsp; <span style="color:var(--muted)">Available Immediately · © 2025</span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up, .tl-item').forEach((el,i) => {
+  el.style.transitionDelay = (i % 4 * 0.1) + 's';
+  obs.observe(el);
+});
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 140) cur = s.id; });
+  navLinks.forEach(a => { a.style.color = a.getAttribute('href')==='#'+cur ? 'var(--red)' : ''; });
+});
+</script>
+</body>
+</html>
